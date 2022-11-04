@@ -106,9 +106,10 @@ function buscarPropiedades() {
             contador.innerHTML = "";
             totalPropiedades();
             break
+
         } else if (+cuartos.value === +propiedad.cuartos && (+m2desde.value <= +propiedad.metros && +m2hasta.value >= +propiedad.metros)) {
             
-            cuenta++ 
+            cuenta++;
             
             let template = `
             <div class="container__product">
@@ -140,6 +141,10 @@ function buscarPropiedades() {
             seccionPropiedades.innerHTML += template;
             contador.innerHTML = `Total: ${cuenta}`;
         }
+    }
+    if (cuenta === 0 && !((cuartos.value === "" || m2desde.value === "" || m2hasta.value === ""))) {
+            seccionPropiedades.innerHTML = `<h2>No hay resultados</h2>`;
+            contador.innerHTML = "";
     }
 }
 
